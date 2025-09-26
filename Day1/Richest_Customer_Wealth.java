@@ -1,0 +1,33 @@
+package ICP.Day1;
+
+import java.util.Scanner;
+
+public class Richest_Customer_Wealth {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int[][] arr = new int[n][m];
+        for(int i=0; i<n; i++){
+            for(int j=0; j<m; j++){
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        int result = Wealth(arr);
+        System.out.println(result);
+        sc.close();
+    }
+    public static int Wealth(int[][] arr){
+        int n = arr.length;
+        int max = 0;
+        for(int i=0; i<n; i++){
+            int sum = 0;
+            for(int j=0; j<arr[i].length; j++){
+                sum = sum + arr[i][j];
+            }
+            max = Math.max(sum, max);
+        }
+        return max;
+    }
+}
+
